@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load staticfiles %}
+	<head>
+		<meta charset="UTF-8">
+		<title>Material en Línea CAAFI | {% block title %}Inicio{% endblock %}</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'caafi/css/metro-bootstrap.css' %}"/>
+		<script src="{% static 'caafi/js/jquery.min.js' %}"></script>
+		<script src="{% static 'caafi/js/jquery.widget.min.js' %}"></script>
+		<script src="{% static 'caafi/js/metro.min.js' %}"></script>
+	</head>
+	<body class="metro">
+		...markup page...
+		<header>
+			<h1>CAAFI</h1>
+		</header>
+		<nav class="navigation-bar dark">
+		    <nav class="navigation-bar-content">
+			    <item class="element">...</item>
+			    <item class="element-divider">...</item>
+			    ...
+			    <item class="element">...</item>
+		    </nav>
+	    </nav>
+		<section>
+			{% block content %}{% endblock %}
+		</section>
+		<footer>Centro de auto acceso - Facultad de idiomas</footer>
+	</body>
+</html>

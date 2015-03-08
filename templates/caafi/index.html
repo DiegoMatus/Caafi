@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Inicio {% endblock %}
+{% block content %}
+	{% for language in languages %}
+		<a href="{% url "catalogo" language.id %}">{{ language.name }}</a>
+	{% endfor %} 
+{% endblock %}
