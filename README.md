@@ -1,2 +1,3 @@
 # Caafi
-Platform for online material of control center auto acceso at the Faculty of Languages (UV)
+Plataforma para el control de material en línea del Centro de Autoacceso de la Facultad de 
+Idiomas.
