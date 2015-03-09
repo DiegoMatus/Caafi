@@ -1,30 +1,32 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
-{% load staticfiles %}
 	<head>
 		<meta charset="UTF-8">
 		<title>Material en Línea CAAFI | {% block title %}Inicio{% endblock %}</title>
-		<link rel="stylesheet" type="text/css" href="{% static 'caafi/css/metro-bootstrap.css' %}"/>
-		<script src="{% static 'caafi/js/jquery.min.js' %}"></script>
-		<script src="{% static 'caafi/js/jquery.widget.min.js' %}"></script>
-		<script src="{% static 'caafi/js/metro.min.js' %}"></script>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="{% static "caafi/css/bootstrap.min.css" %}"/>
+		<link rel="stylesheet" href="{% static "caafi/css/style.css" %}">
+
+		<script src="{% static "caafi/js/jquery.js" %}"></script>
+		<script src="{% static "caafi/js/bootstrap.min.js" %}"></script>
 	</head>
+
 	<body class="metro">
-		...markup page...
 		<header>
-			<h1>CAAFI</h1>
+			<div class="container">
+				<h1><span class="glyphicon glyphicon-cloud"></span> CAAFI</h1>
+			</div>
 		</header>
-		<nav class="navigation-bar dark">
-		    <nav class="navigation-bar-content">
-			    <item class="element">...</item>
-			    <item class="element-divider">...</item>
-			    ...
-			    <item class="element">...</item>
-		    </nav>
-	    </nav>
-		<section>
-			{% block content %}{% endblock %}
-		</section>
-		<footer>Centro de auto acceso - Facultad de idiomas</footer>
+		<div class="container">
+			<section>
+				{% block content %}{% endblock %}
+			</section>
+		</div>
+		<footer>
+			<div class="containerfluid text-center">
+				<p>Centro de Autoacceso - Facultad de idiomas</p>
+			</div>
+		</footer>
 	</body>
 </html>

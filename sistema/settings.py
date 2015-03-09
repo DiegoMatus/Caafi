@@ -62,6 +62,10 @@ TEMPLATE_DIRS = (
     "/home/diego/CAAFI/sistema/templates",
 )
 
+STATICFILES_DIRS = (
+    "/home/diego/CAAFI/sistema/static",
+)
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
