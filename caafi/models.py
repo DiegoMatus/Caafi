@@ -8,6 +8,16 @@ class Language(models.Model):
 	'''Se puede registrar cualquier cantidad de idiomas.'''
 	name = models.CharField('Nombre', max_length=50)
 	#image = models.ImageField(upload_to="/images")
+	slug = models.SlugField(max_length=50, unique=True, blank=True, null=True)
+
+	def save(self, *args, **kwargs):
+		if not self.slug:
+			self.slug = slugify(unicode(self.name))
+		super(Language, self).save()
+
+	def get_absolute_url(self):
+		return "/tag/%s/" % (self.slug)
+
 	def __str__(self):
 		return self.name
 
@@ -77,11 +87,12 @@ class Url(models.Model):
 	address = models.URLField('Dirección', max_length=200)
 	description = models.TextField('Descripción', default='Escribe una descripción')
 	language = models.ForeignKey(Language, verbose_name='Idioma', related_name='urls', default=0)
-	subcategories = models.ManyToManyField(Subcategory, verbose_name='Subcategorías', related_name='urls')
+	category = models.ForeignKey(Category, verbose_name='Categoría', related_name='urls1', default=0)
+	subcategories = models.ManyToManyField(Subcategory, verbose_name='Subcategorías', related_name='urls2')
 	level = models.CharField('Nivel', max_length=2, choices=LEVELS, blank=False, default='---------')
-	primary_competence = models.ForeignKey(Competence, verbose_name='Competencia primaria', related_name='urls1')
-	secondary_competence = models.ForeignKey(Competence, verbose_name='Competencia secundaria', related_name='urls2')
-	kind_exercise = models.ForeignKey(Exercise, verbose_name='Tipo de ejercicio', related_name='urls')
+	primary_competence = models.ForeignKey(Competence, verbose_name='Competencia primaria', related_name='urls3')
+	secondary_competence = models.ForeignKey(Competence, verbose_name='Competencia secundaria', related_name='urls4')
+	kind_exercise = models.ForeignKey(Exercise, verbose_name='Tipo de ejercicio', related_name='urls5')
 	kind_item = models.CharField('Tipo de item', max_length=3, choices=ITEMS, blank=False, default='---------')
 	number_items = models.IntegerField('Número de items/ Duración')
 	kind_correction = models.CharField('Tipo de correción', max_length=3, choices=CORRECTIONS, blank=False, default='---------')

@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Material en Línea CAAFI | {% block title %}Inicio{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="{% static "caafi/css/bootstrap.min.css" %}"/>
+		<link rel="stylesheet" href="{% static "caafi/css/style.css" %}">
+	</head>
+
+	<body style="background: #33B77A; color: #EEEEEE">
+		<header>
+			<div class="container">
+				<h1><span class="glyphicon glyphicon-cloud"></span><strong> CAAFI</strong></h1>
+			</div>
+		</header>
+		<div class="container">
+			<section>
+				{% block content %}{% endblock %}
+			</section>
+		</div>
+		<footer>
+			<div class="containerfluid text-center">
+				<p>Centro de Autoacceso - Facultad de idiomas</p>
+			</div>
+		</footer>
+
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
+		  
+		<!-- jQuery -->
+		<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		  
+		<!-- DataTables -->
+		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
+		<script src="{% static "caafi/js/bootstrap.min.js" %}"></script>
+		<script src="{% static "caafi/js/scripts.js" %}"></script>
+	</body>
+</html>

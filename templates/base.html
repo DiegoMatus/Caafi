@@ -5,17 +5,16 @@
 		<meta charset="UTF-8">
 		<title>Material en Línea CAAFI | {% block title %}Inicio{% endblock %}</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<!-- DataTables CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static "caafi/css/jquery.dataTables.css" %}">
 		<link rel="stylesheet" type="text/css" href="{% static "caafi/css/bootstrap.min.css" %}"/>
 		<link rel="stylesheet" href="{% static "caafi/css/style.css" %}">
-
-		<script src="{% static "caafi/js/jquery.js" %}"></script>
-		<script src="{% static "caafi/js/bootstrap.min.js" %}"></script>
 	</head>
 
-	<body class="metro">
+	<body>
 		<header>
 			<div class="container">
-				<h1><span class="glyphicon glyphicon-cloud"></span> CAAFI</h1>
+				<h1><span class="glyphicon glyphicon-cloud"></span><strong> CAAFI</strong></h1>
 			</div>
 		</header>
 		<div class="container">
@@ -28,5 +27,13 @@
 				<p>Centro de Autoacceso - Facultad de idiomas</p>
 			</div>
 		</footer>
+		  
+		<!-- jQuery -->
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		  
+		<!-- DataTables -->
+		<script src="{% static "caafi/js/jquery.dataTables.js" %}"></script>
+		<script src="{% static "caafi/js/bootstrap.min.js" %}"></script>
+		<script src="{% static "caafi/js/scripts.js" %}"></script>
 	</body>
 </html>

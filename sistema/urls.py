@@ -9,7 +9,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'caafi.views.index', name='index'),
-    url(r'^catalogo/(?P<language_id>\d+)/$', 'caafi.views.catalog', name='catalogo'),
-    url(r'^lista/$', 'caafi.views.url_list', name='lista'),
+    url(r'^catalogo/(?P<language_name>\w+)/$', 'caafi.views.catalog', name='catalogo'),
+    url(r'^catalogo/(?P<language_name>\w+)/(?P<category_name>\w+)$', 'caafi.views.catalog_categories', name='lista_categorias'),
+    url(r'^catalogo/(?P<language_name>\w+)/(?P<category_name>\w+)/(?P<subcategory_name>\w+)$', 'caafi.views.catalog_subcategories', name='lista_subcategorias'),
     url(r'^busqueda/$', 'caafi.views.search', name='busqueda'),
 )

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Lista de material{% endblock %}
+{% block content %}
+	<h2 class="text-info text-center">{{ subcategory }}</h2>
+	<table id="categories" class="display table-condensed table-responsive">
+	    <thead>
+	        <tr>
+	            <th>Nivel</th>
+	            <th>Competencia primaria</th>
+	            <th>Competencia secundaria</th>
+	            <th>Tipo de correción</th>
+	            <th>Dirección</th>
+	            <th>Descripción</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    	{% for url in urls %}
+				<tr>
+					<td>{{url.level}}</td>
+					<td>{{url.primary_competence}}</td>
+					<td>{{url.secondary_competence}}</td>
+					<td>{{url.kind_correction}}</td>
+					<td><a href="{{ url.address }}">{{ url.address }}</a></td>
+					<td>{{url.description}}</td>
+				</tr>
+	    	{% endfor %}
+	    </tbody>
+	</table>
+{% endblock %}

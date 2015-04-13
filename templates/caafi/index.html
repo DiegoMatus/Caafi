@@ -1,9 +1,22 @@
-{% extends "base.html" %}
+{% extends "baseIndex.html" %}
+{% load static %}
 {% block title %} Inicio {% endblock %}
 {% block content %}
-	<ul>
-		{% for language in languages %}
-			<li><a href="{% url "catalogo" language.id %}">{{ language.name }}</a></li>
-		{% endfor %} 
-	</ul>
+	<div class="row">
+		<div class="my-content col-xs-12 col-sm-7 col-md-7">
+			<figure>
+				<img id="image-world" src="{% static "caafi/images/world.png" %}" alt="World" width="50%" height="50%" />
+			</figure>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-md-3 col-md-offset-1">
+			<h3 class="text-center"><b>Selecciona un idioma</b></h3>
+			<ul class="list-group">
+				{% for language in languages %}
+					<a class="list-group-item my-list-group-item" href="{% url "catalogo" language.name %}">
+						<span class="badge my-badge"><span class="glyphicon glyphicon-menu-right"></span></span>{{ language.name }}
+					</a>
+				{% endfor %}
+			</ul>			
+		</div>
+	</div>
 {% endblock %}

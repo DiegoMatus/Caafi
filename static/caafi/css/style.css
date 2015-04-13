@@ -1,16 +1,65 @@
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('../fonts/MuseoSans_500-webfont.eot');
+    src: url('../fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MuseoSans_500-webfont.woff2') format('woff2'),
+         url('../fonts/MuseoSans_500-webfont.woff') format('woff'),
+         url('../fonts/MuseoSans_500-webfont.ttf') format('truetype'),
+         url('../fonts/MuseoSans_500-webfont.svg#museo_sans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/** {
+	border: solid 1px #EEFF11;
+}*/
+
+body {
+	font-family: 'museo_sans500';
+}
+
 footer {
 	width: 100%;
 	height: 10%;
-	position: absolute;
-	bottom: 0;
-	background: #019966;
+	color: #EEEEEE;
+	background: #33B77A;
 	padding: 2%;
 }
 
 header {
-	background: #019966;
+	background: #33B77A;
+	color: #EEEEEE;
 }
 
 section {
 	padding-top: 2%;
+}
+
+.arrow {
+	color: #BBBBBB;
+}
+
+.my-badge {
+	color: #BBBBBB;
+	background-color: #FFFFFF;
+	font-size: 16px;
+}
+
+.my-content {
+	margin-bottom: 5%;
+	margin-top: 5%;
+}
+
+.my-list-group-item:first-child {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.my-list-group-item:last-child {
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+#image-world {
+	margin: 0 25%;
 }
