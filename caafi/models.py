@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib import admin
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Language(models.Model):
@@ -10,13 +11,12 @@ class Language(models.Model):
 	#image = models.ImageField(upload_to="/images")
 	slug = models.SlugField(max_length=50, unique=True, blank=True, null=True)
 
-	def save(self, *args, **kwargs):
-		if not self.slug:
-			self.slug = slugify(unicode(self.name))
+	def save(self):
+		self.slug = slugify(str(self.name))
 		super(Language, self).save()
 
 	def get_absolute_url(self):
-		return "/tag/%s/" % (self.slug)
+		return self.slug
 
 	def __str__(self):
 		return self.name
@@ -32,6 +32,14 @@ class Category(models.Model):
 	'''Una categoría puede pertenecer a varios idiomas y de igual forma un idioma puede contener una o varias categorías registradas.'''
 	name = models.CharField('Nombre', max_length=50)
 	languages = models.ManyToManyField(Language, verbose_name='Idioma', related_name='categories')
+	slug = models.SlugField(max_length=50, unique=True, blank=True, null=True)
+
+	def save(self):
+		self.slug = slugify(str(self.name))
+		super(Category, self).save()
+
+	def get_absolute_url(self):
+		return self.slug
 
 	def __str__(self):
 		return self.name
@@ -42,6 +50,14 @@ class Subcategory(models.Model):
 	name = models.CharField('Nombre', max_length=50)
 	category = models.ForeignKey(Category, verbose_name='Categoria', related_name='subcategories')
 	language = models.ManyToManyField(Language, verbose_name='Idioma', related_name='subcategories')
+	slug = models.SlugField(max_length=50, unique=True, blank=True, null=True)
+
+	def save(self):
+		self.slug = slugify(str(self.name))
+		super(Subcategory, self).save()
+
+	def get_absolute_url(self):
+		return self.slug
 
 	def __str__(self):
 		return self.name

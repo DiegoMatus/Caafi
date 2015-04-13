@@ -3,7 +3,7 @@
 {% block content %}
 	<h2 class="text-info text-center">{{ category }}</h2>
 	{% for subcategory in subcategories %}
-			<li><a href="{% url "lista_subcategorias" language category subcategory.name %}">{{ subcategory.name }}</a></li>
+			<li><a href="{% url "lista_subcategorias" language category subcategory.slug %}">{{ subcategory.name }}</a></li>
 	{% endfor %}
 <!--	<table id="categories" class="display table-condensed table-responsive">
 	    <thead>

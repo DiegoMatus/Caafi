@@ -8,9 +8,9 @@
 	            <th>Nivel</th>
 	            <th>Competencia primaria</th>
 	            <th>Competencia secundaria</th>
-	            <th>Tipo de correción</th>
-	            <th>Dirección</th>
+	            <th>Correción</th>
 	            <th>Descripción</th>
+	            <th>Dirección</th>
 	        </tr>
 	    </thead>
 	    <tbody>
@@ -20,8 +20,8 @@
 					<td>{{url.primary_competence}}</td>
 					<td>{{url.secondary_competence}}</td>
 					<td>{{url.kind_correction}}</td>
-					<td><a href="{{ url.address }}">{{ url.address }}</a></td>
 					<td>{{url.description}}</td>
+					<td><a href="{{ url.address }}">{{ url.address }}</a></td>
 				</tr>
 	    	{% endfor %}
 	    </tbody>

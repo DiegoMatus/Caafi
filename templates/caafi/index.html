@@ -12,7 +12,7 @@
 			<h3 class="text-center"><b>Selecciona un idioma</b></h3>
 			<ul class="list-group">
 				{% for language in languages %}
-					<a class="list-group-item my-list-group-item" href="{% url "catalogo" language.name %}">
+					<a class="list-group-item my-list-group-item" href="{% url "catalogo" language.get_absolute_url %}">
 						<span class="badge my-badge"><span class="glyphicon glyphicon-menu-right"></span></span>{{ language.name }}
 					</a>
 				{% endfor %}
