@@ -1,0 +1,33 @@
+a {
+	color: #111111;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+	color: #337AB7;
+}
+
+h2 {
+	color: #111111;
+}
+
+.category-content {
+	background-color: #D33333;
+	height: 10em;
+	margin-bottom: 2%;
+	text-align: center;
+	padding-top: 5%;
+}
+
+.navbar {
+	background: #FFFFFF;
+	border-bottom: 1px solid #33B77A;
+}
+
+.navbar-default .navbar-brand, .navbar-brand:focus, .navbar-nav > li > a, .navbar-nav > li > a:focus {
+	color: #666666;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-nav > li > a:hover{
+	color: #000000;
+}

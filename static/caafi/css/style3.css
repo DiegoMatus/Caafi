@@ -1,0 +1,68 @@
+a {
+	color: #337AB7;
+}
+
+a:hover {
+	color: #337AB7;
+	text-decoration: underline;
+}
+
+body {
+	color: #111111;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 1px solid #999999;
+}
+
+.btn-custom {
+	background-color: #AAAAAA;
+	border-color: #999999;
+}
+
+.btn-custom:hover, .btn-custom:focus {
+	cursor: not-allowed;
+	background-color: #AAAAAA;
+	border-color: #999999;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+	background-color: #33B77A;
+	border-color: #33B77A;
+}
+
+.table-bordered thead tr th {
+    border: 1px solid #999999;
+}
+
+.table-bordered thead tr {
+	background: #33B77A;
+	color: #EEEEEE;
+}
+/*.navbar {
+	background: #33B77A;
+}
+
+.navbar-default .navbar-brand {
+	color: #EEEEEE;
+}
+
+.navbar-default .navbar-brand:focus {
+	color: #EEEEEE;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > li > a{
+	color: #EEEEEE;
+}
+
+.navbar-default .navbar-nav > li > a:focus{
+	color: #EEEEEE;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+	color: #FFFFFF;
+}*/

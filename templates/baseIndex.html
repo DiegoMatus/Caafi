@@ -8,14 +8,14 @@
 		<!-- DataTables CSS -->
 		<link rel="stylesheet" type="text/css" href="{% static "caafi/css/jquery.dataTables.css" %}">
 		<link rel="stylesheet" type="text/css" href="{% static "caafi/css/bootstrap.min.css" %}"/>
-		<link rel="stylesheet" href="{% static "caafi/css/style.css" %}">
+		<link rel="stylesheet" href="{% static "caafi/css/styleIndex.css" %}">
 
 	</head>
 
-	<body style="background: #33B77A; color: #EEEEEE">
+	<body>
 		<header>
 			<div class="container">
-				<h1><span class="glyphicon glyphicon-cloud"></span><strong> CAAFI</strong></h1>
+				<h1><strong> CAAFI</strong></h1>
 			</div>
 		</header>
 		<div class="container">
@@ -30,10 +30,11 @@
 		</footer>
 		  
 		<!-- jQuery -->
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="{% static "caafi/js/jquery.min.js" %}"></script>
 		  
 		<!-- DataTables -->
 		<script src="{% static "caafi/js/jquery.dataTables.js" %}"></script>
+		
 		<script src="{% static "caafi/js/bootstrap.min.js" %}"></script>
 		<script src="{% static "caafi/js/scripts.js" %}"></script>
 	</body>

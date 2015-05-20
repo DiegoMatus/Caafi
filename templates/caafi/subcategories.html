@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Lista de material{% endblock %}
+{% block style %}
+	<link rel="stylesheet" href="/static/caafi/css/style.css">
+	<link rel="stylesheet" href="/static/caafi/css/style2.css">
+	<link rel="stylesheet" href="/static/caafi/css/style3.css">
+{% endblock %}
+{% block navbar %}
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categorías<span class="caret"></span></a>
+	<ul class="dropdown-menu" role="menu">
+		{% for category in categories %}
+			<li><a href="{{ category.get_absolute_url }}">{{category}}</a></li>
+		{% endfor %}
+	<li class="divider"></li>
+	</ul>
+</li>
+{% endblock %}
+
+{% block content %}
+	<h2 class="title text-center">{{ category }}</h2>
+	<div class="list-group">
+		{% for subcategory in subcategories %}
+			<a class="list-group-item subcategory" href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a>
+		{% endfor %}
+	</div>
+{% endblock %}

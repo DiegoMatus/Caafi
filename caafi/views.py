@@ -7,29 +7,34 @@ def index(request):
 	languages = Language.objects.all()
 	return render_to_response('caafi/index.html', {'languages' : languages})
 
-def catalog(request, language_name):
+def lista_categorias(request, language_name):
+	languages = Language.objects.all();
 	language_id = Language.objects.filter(slug=language_name)[0].id
 	language = get_object_or_404(Language, pk=language_id)
+	#menu_name = language.name
 	categories = language.categories.all()
-	return render_to_response('caafi/catalogo.html', {'language': language_name, 'categories' : categories})
+	return render_to_response('caafi/categories.html', {'languages' : languages, 'menu' : language, 'language' : language_name, 'categories' : categories})
 
-def catalog_categories(request, language_name, category_name):
+def lista_subcategorias(request, language_name, category_name):
+	languages = Language.objects.all();
 	language_id = Language.objects.filter(slug=language_name)[0].id
 	language = get_object_or_404(Language, pk=language_id)
+	#menu_name = language.name
+	categories = language.categories.all()
 	category_id = Category.objects.filter(slug=category_name)[0].id
 	category = get_object_or_404(Category, pk=category_id)
-	subcategories = category.subcategories.all()
-	return render_to_response('caafi/lista.html', {'language' : language_name, 'category' : category_name, 'subcategories' : subcategories})
+	subcategories = category.subcategories.all();
+	return render_to_response('caafi/subcategories.html', {'languages' : languages, 'menu' : language, 'language' : language_name, 'categories' : categories, 'category' : category.name, 'subcategories' : subcategories})
 
-def catalog_subcategories(request, language_name, category_name, subcategory_name):
+def lista_urls(request, language_name, category_name, subcategory_name):
+	languages = Language.objects.all();
 	language_id = Language.objects.filter(slug=language_name)[0].id
 	language = get_object_or_404(Language, pk=language_id)
+	#menu_name = language.name
+	categories = language.categories.all()
 	category_id = Category.objects.filter(slug=category_name)[0].id
 	category = get_object_or_404(Category, pk=category_id)
 	subcategory_id = Subcategory.objects.filter(slug=subcategory_name)[0].id
 	subcategory = get_object_or_404(Subcategory, pk=subcategory_id)
 	urls = subcategory.urls2.all()
-	return render_to_response('caafi/lista2.html', {'urls' : urls, 'subcategory' : subcategory_name})
-
-def search(request):
-	return HttpResponse('Resultados de búsqueda :3333')
+	return render_to_response('caafi/urls.html', {'languages' : languages, 'menu' : language, 'language' : language_name, 'categories' : categories, 'urls' : urls, 'subcategory' : subcategory.name})

@@ -5,14 +5,15 @@
 	<div class="row">
 		<div class="my-content col-xs-12 col-sm-7 col-md-7">
 			<figure>
-				<img id="image-world" src="{% static "caafi/images/world.png" %}" alt="World" width="50%" height="50%" />
+				<img class="img-responsive" id="image-world" src="{% static "caafi/images/world.png" %}" alt="World" width="50%" height="50%" />
 			</figure>
 		</div>
 		<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-md-3 col-md-offset-1">
 			<h3 class="text-center"><b>Selecciona un idioma</b></h3>
 			<ul class="list-group">
 				{% for language in languages %}
-					<a class="list-group-item my-list-group-item" href="{% url "catalogo" language.get_absolute_url %}">
+					<a class="list-group-item my-list-group-item" href="{{ language.get_absolute_url }}">
+						<img src="{{ language.get_image_url }}" width='10%' height='10%' alt=""/>
 						<span class="badge my-badge"><span class="glyphicon glyphicon-menu-right"></span></span>{{ language.name }}
 					</a>
 				{% endfor %}

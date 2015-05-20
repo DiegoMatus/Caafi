@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
@@ -57,14 +58,6 @@ ROOT_URLCONF = 'sistema.urls'
 
 WSGI_APPLICATION = 'sistema.wsgi.application'
 
-TEMPLATE_DIRS = (
-    "/home/diego/CAAFI/sistema/templates",
-)
-
-STATICFILES_DIRS = (
-    "/home/diego/CAAFI/sistema/static",
-)
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -91,5 +84,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
 STATIC_URL = '/static/'
+
+TEMPLATE_CONTEXT_PROCESSORS = ( 
+    'django.core.context_processors.media',
+    'django.contrib.auth.context_processors.auth',
+    "django.core.context_processors.request", )
+
+TEMPLATE_DIRS = (
+    "/home/diego/CAAFI/sistema/templates",
+)
+
+STATICFILES_DIRS = (
+    "/home/diego/CAAFI/sistema/static",
+)
+
+MEDIA_URL = '/'
+MEDIA_ROOT = './static/caafi'.replace('\\','/')
