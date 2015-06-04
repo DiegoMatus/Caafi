@@ -39,6 +39,30 @@ table.dataTable.no-footer {
 	background: #33B77A;
 	color: #EEEEEE;
 }
+
+.text-A1 {
+    color: #FF8C00;
+}
+
+.text-A2 {
+    color: #006400;
+}
+
+.text-B1 {
+    color: #191970;
+}
+
+.text-B2 {
+    color: #FBDE42;
+}
+
+.text-C1 {
+    color: #CC0000;
+}
+
+.text-C2 {
+    color: #000000;
+}
 /*.navbar {
 	background: #33B77A;
 }

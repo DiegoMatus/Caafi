@@ -12,18 +12,16 @@
 </head>
 
 <body>
+<div id="wrapper">
 	<header>
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				    <span class="sr-only">Toggle navigation</span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				  </button>
-				  <a class="navbar-brand" href="/"><strong>CAAFI</strong></a>
+				<div class=" navbar-header">
+						<a class="navbar-brand" href="/">
+							<img width="70%" height="150%" src="{% static "caafi/images/caafi-logo.png" %}" />
+						</a>
+						<a id="logo" href="/"><strong>CAAFI</strong></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,16 +44,18 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
-	<div class="container">
+	<div id="body" class="container">
 		<section>
 			{% block content %}{% endblock %}
 		</section>
 	</div>
 	<footer class="footer">
 		<div class="container text-center">
-			<p>Centro de Autoacceso - Facultad de idiomas</p>
+			<p>Universidad Veracruzana</p>
+			<p>Centro de Autoacceso de la Facultad de idiomas</p>
 		</div>
 	</footer>
+</div>
 	  
 	<!-- jQuery -->
 	<script src="{% static "caafi/js/jquery.min.js" %}"></script>

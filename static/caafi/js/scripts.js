@@ -17,20 +17,33 @@ function changeColor(){
 	$('.category-content').each(function(){
 		$(this).css('background-color', colors[i])
 		i++;
-	})
+	});
 }
 
 function changeTitle(){
 	if($('.title').text() === 'Categorías'){
 		$('body').css('background-color', '#EEEEEE');
 	}
-}
+}	
 
 function putActive(){
 	$('.subcategory:first-child').addClass('active');
 }
 
+function reportUrl(){	
+	$('#categories tbody tr').on('click', function(){
+		$('#btn-reported').removeClass('btn-custom');
+		$(this).css('background', '#AAAAAA');
+	});
+
+	/*$('body').not('#categories tbody tr').on('click', function(){
+		$('#btn-reported').addClass('btn-custom');
+	})*/
+}
+
 $(document).on('ready', loadData);
 $(document).on('ready', changeColor);
-$(document).on('ready',changeTitle );
+$(document).on('ready', changeTitle);
 $(document).on('ready', putActive);
+$(document).on('ready', reportUrl);
+

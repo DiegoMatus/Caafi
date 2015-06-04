@@ -4,6 +4,7 @@
 	<link rel="stylesheet" href="/static/caafi/css/style.css">
 	<link rel="stylesheet" href="/static/caafi/css/style2.css">
 	<link rel="stylesheet" href="/static/caafi/css/style3.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 {% endblock %}
 {% block navbar %}
 <li class="dropdown">
@@ -12,7 +13,6 @@
 		{% for category in categories %}
 			<li><a href="{{ category.get_absolute_url }}">{{category.name}}</a></li>
 		{% endfor %}
-	<li class="divider"></li>
 	</ul>
 </li>
 {% endblock %}
@@ -22,8 +22,10 @@
 	    <thead>
 	        <tr class="title">
 	            <th>Nivel</th>
-	            <th>Competencia primaria</th>
-	            <th>Competencia secundaria</th>
+	            <th>Comp primaria</th>
+	            <th>Comp secundaria</th>
+	            <th>Ejercicio</th>
+	            <th>Contenido</th>
 	            <th>Correción</th>
 	            <th>Descripción</th>
 	            <th>Dirección</th>
@@ -31,24 +33,42 @@
 	    </thead>
 	    <tbody>
 	    	{% for url in urls %}
-				<tr>
-					<td>{{url.level}}</td>
-					<td>{{url.primary_competence}}</td>
-					<td>{{url.secondary_competence}}</td>
-					{% if url.kind_correction = 'SI' %}
-						<td>Sí, sin explicación</td>
-					{% elif url.kind_correction = 'SI+' %}
-						<td>Sí, con explicación</td>
-					{% elif url.kind_correction = 'NO' %}
-						<td>No tiene</td>
-					{% else %}
-						<td>No aplica</td>
+				<tr class="urls-list">
+					{% if url.level = 'A1' %}
+						<td class="url">{{url.level}} <i class="text-danger text-A1 fa fa-circle"><i></td>
+					{% elif url.level = 'A2' %}
+						<td class="url">{{url.level}} <i class="text-danger text-A2 fa fa-circle"><i></td>
+					{% elif url.level = 'B1' %}
+						<td class="url">{{url.level}} <i class="text-danger text-B1 fa fa-circle"><i></td>
+					{% elif url.level = 'B2' %}
+						<td class="url">{{url.level}} <i class="text-danger text-B2 fa fa-circle"><i></td>
+					{% elif url.level = 'C1' %}
+						<td class="url">{{url.level}} <i class="text-danger text-C1 fa fa-circle"><i></td>
+					{% elif url.level = 'C2' %}
+						<td class="url">{{url.level}} <i class="text-danger text-C2 fa fa-circle"><i></td>
 					{% endif %}
-					<td>{{url.description}}</td>
-					<td><a href="{{ url.address }}" target="_blank">{{ url.address }}</a></td>
+					<td class="url">{{url.primary_competence}}</td>
+					<td class="url">{{url.secondary_competence}}</td>
+					<td class="url">{{url.kind_exercise}}</td>
+					<td class="url">{{url.kind_item}}</td>
+					{% if url.kind_correction = 'SI' %}
+						<td class="url">Sí, sin explicación</td>
+					{% elif url.kind_correction = 'SI+' %}
+						<td class="url">Sí, con explicación</td>
+					{% elif url.kind_correction = 'NO' %}
+						<td class="url">No tiene</td>
+					{% else %}
+						<td class="url">No aplica</td>
+					{% endif %}
+					<td class="url">{{url.description}}</td>
+					<td class="url"><a href="{{ url.address }}" target="_blank">{{ url.address }}</a></td>
 				</tr>
 	    	{% endfor %}
 	    </tbody>
 	</table>
-	<a class="btn btn-warning btn-custom" href="#">Reportar</a>
+	<div class="row">
+		<div class="col-xs-12 col-sm-10 col-md-3">
+			<a id="btn-reported" class="btn btn-warning btn-custom" href="#">Reportar</a>
+		</div>
+	</div>
 {% endblock %}

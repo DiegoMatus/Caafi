@@ -18,18 +18,37 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: bottom right;
+	margin:0;
+	padding:0;
+	height:100%
 }
 
 footer {
 	background-color: #33B77A;
-	bottom: 0px;
+	bottom: 0;
 	color: #EEEEEE;
-	height: 10%;
-	padding: 2%;
+	height: 80px;
+	margin-top: 2%;
+	padding: 1%;
 	position: absolute;
 	width: 100%;
 }
 
 .row {
 	padding-top: 2%;
+}
+
+#body {
+	padding-bottom:160px;   /* Height of the footer */
+}
+
+#wrapper {
+   min-height:100%;
+   position:relative;
+   bottom: 0;
+}
+
+#logo {
+	margin-top: 50%;
+	color: #111111;
 }

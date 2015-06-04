@@ -8,11 +8,6 @@ import uuid
 import os
 
 # Create your models here.
-def get_file_path_category(instance, filename):
-	ext = filename.split('.')[-1]
-	filename = "%s.%s" % (uuid.uuid4(), ext)
-	return os.path.join('images/categories', filename)
-
 def get_file_path_languages(instance, filename):
 	ext = filename.split('.')[-1]
 	filename = "%s.%s" % (uuid.uuid4(), ext)
@@ -36,10 +31,14 @@ class Language(models.Model):
 
 	def __str__(self):
 		return self.name
-
+#############################################################################################
+def get_file_path_category(instance, filename):
+	ext = filename.split('.')[-1]
+	filename = "%s.%s" % (uuid.uuid4(), ext)
+	return os.path.join('images/categories', filename)
 
 class Category(models.Model):
-	'''Una categoría puede pertenecer a varios idiomas y de igual forma un idioma puede contener una o varias categorías registradas.'''
+	'''Una categoría puede pertenecer a un único idioma. Un idioma puede contener una o varias categorías registradas.'''
 	name = models.CharField('Nombre', max_length=50)
 	language = models.ForeignKey(Language, verbose_name='Idioma', related_name='categories', blank=True, null=True)
 	image = models.FileField(upload_to=get_file_path_category)
@@ -97,6 +96,7 @@ class Exercise(models.Model):
 	def __str__(self):
 		return self.name
 
+
 class Url(models.Model):
 	'''Una URL está registrada dentro de una o varias subcategorías pertenecientes a una misma categoría de un idioma'''
 	CORRECTIONS= (
@@ -105,13 +105,7 @@ class Url(models.Model):
 		('NO', 'No tiene correción'),
 		('NA', 'No aplica')
 	)	
-	ITEMS= (
-		('EJE', 'Ejemplos'),
-		('MIN', 'Minutos'),
-		('PAG', 'Páginas'),
-		('REA', 'Reactivos'),
-		('SEG', 'Segundos')
-	)
+
 	LEVELS= (
 		('A1', 'A1 - Principiante'),
 		('A2', 'A2 - Intermedio bajo'),
@@ -128,11 +122,17 @@ class Url(models.Model):
 	primary_competence = models.ForeignKey(Competence, verbose_name='Competencia primaria', related_name='urls3')
 	secondary_competence = models.ForeignKey(Competence, verbose_name='Competencia secundaria', related_name='urls4')
 	kind_exercise = models.ForeignKey(Exercise, verbose_name='Tipo de ejercicio', related_name='urls5')
-	kind_item = models.CharField('Tipo de item', max_length=3, choices=ITEMS, blank=False, default='---------')
-	number_items = models.IntegerField('Número de items/ Duración')
+	kind_item = models.CharField('Cantidad/Duración de Items', max_length=50)
 	kind_correction = models.CharField('Tipo de correción', max_length=3, choices=CORRECTIONS, blank=False, default='---------')
-	status = models.BooleanField('Disponible', default=True)
+	status = models.BooleanField('Reportada', default=False)
 	published = models.DateTimeField(auto_now_add=True, default=timezone.now().date())
 	
+	def __str__(self):
+		return self.address
+
+class Reported_urls(models.Model):
+	'''Direcciones reportadas por los alumnos. Se almacenan en esta tabla para verificar su status'''
+	address = models.ForeignKey(Url, verbose_name='Dirección', related_name='reportedUrls')
+
 	def __str__(self):
 		return self.address
