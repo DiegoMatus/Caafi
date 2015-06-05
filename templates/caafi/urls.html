@@ -67,8 +67,12 @@
 	    </tbody>
 	</table>
 	<div class="row">
-		<div class="col-xs-12 col-sm-10 col-md-3">
-			<a id="btn-reported" class="btn btn-warning btn-custom" href="#">Reportar</a>
+		<div class="">
+			
 		</div>
+		<form class="col-xs-12 col-sm-10 col-md-3" action="/url/add" method="post">
+			<input type="text" name="reported_url" />
+        	<input type="submit" value="Reportar enlace" id="btn-reported" class="btn btn-warning btn-custom"/>
+		</form>
 	</div>
 {% endblock %}

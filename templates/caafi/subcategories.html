@@ -20,7 +20,7 @@
 	<h2 class="title text-center">{{ category }}</h2>
 	<div class="list-group">
 		{% for subcategory in subcategories %}
-			<a class="list-group-item subcategory" href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a>
+			<a class="text-justify list-group-item subcategory" href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}<p class="small text-right"> {{ subcategory.urls2.count }} direcciones</p></a>
 		{% endfor %}
 	</div>
 {% endblock %}

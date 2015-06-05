@@ -18,8 +18,10 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: bottom right;
+	background-size: 1358px 540px;
 	margin:0;
 	padding:0;
+	padding-top: 75px;
 	height:100%
 }
 
@@ -27,15 +29,11 @@ footer {
 	background-color: #33B77A;
 	bottom: 0;
 	color: #EEEEEE;
-	height: 80px;
-	margin-top: 2%;
-	padding: 1%;
-	position: absolute;
+	height: 60px;
+	padding: 1% 0 4.5% 0;
+	/*position: absolute;*/
 	width: 100%;
-}
-
-.row {
-	padding-top: 2%;
+	position: fixed;
 }
 
 #body {
@@ -46,9 +44,4 @@ footer {
    min-height:100%;
    position:relative;
    bottom: 0;
-}
-
-#logo {
-	margin-top: 50%;
-	color: #111111;
 }

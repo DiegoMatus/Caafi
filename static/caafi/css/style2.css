@@ -31,3 +31,12 @@ h2 {
 .navbar-default .navbar-brand:hover, .navbar-nav > li > a:hover{
 	color: #000000;
 }
+
+.text-gray {
+	color: #222222;
+}
+
+#logo-color {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}

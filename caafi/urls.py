@@ -8,4 +8,5 @@ urlpatterns = patterns('caafi.views',
     url(r'^(?P<language_name>\w+)/$', 'lista_categorias'),
     url(r'^(?P<language_name>\w+)/(?P<category_name>[\w|\W]+)/$', 'lista_subcategorias'),
     url(r'^(?P<language_name>\w+)/(?P<category_name>[\w|\W]+)/(?P<subcategory_name>\w+)$', 'lista_urls'),
+    url(r'^url/add', 'urls_reportadas'),
 )

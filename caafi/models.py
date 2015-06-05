@@ -54,6 +54,9 @@ class Category(models.Model):
 	def get_image_url(self):
 		return "{0}{1}".format('/static/caafi', self.image.url)
 
+	def get_total(self):
+		return self.count()
+
 	def __str__(self):
 		return self.name
 		

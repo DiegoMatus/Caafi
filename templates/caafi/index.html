@@ -14,7 +14,7 @@
 				{% for language in languages %}
 					<a class="list-group-item my-list-group-item" href="{{ language.get_absolute_url }}">
 						<img src="{{ language.get_image_url }}" width='10%' height='10%' alt=""/>
-						<span class="badge my-badge"><span class="glyphicon glyphicon-menu-right"></span></span>{{ language.name }}
+						<span class="badge my-badge"><span class="glyphicon glyphicon-menu-right"></span></span>{{ languages_names }}
 					</a>
 				{% endfor %}
 			</ul>			
